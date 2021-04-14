@@ -1,6 +1,8 @@
-body {
+/*
+container {
     padding-top: 5rem;
 }
+*/
 
 .name {
     font-size: 2rem;
@@ -12,4 +14,16 @@ small {
     display: block;
     line-height: 1.428571429;
     color: #999;
+}
+
+/**
+Table
+ */
+
+.select,
+#locale {
+    width: 100%;
+}
+.like {
+    margin-right: 10px;
 }
