@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Insider</title>
+
+    <link rel="canonical" href="">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png"
+          sizes="180x180">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+          type="image/png">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+          type="image/png">
+    <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
+          color="#7952b3">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#7952b3">
+
+    <!-- Custom styles for this template -->
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <style>
+        span.twitter-typeahead .tt-menu {
+            cursor: pointer;
+        }
+
+        .dropdown-menu,
+        span.twitter-typeahead .tt-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            font-size: 1rem;
+            color: #373a3c;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+        }
+
+        span.twitter-typeahead .tt-suggestion {
+            /* display: block; */
+            width: 100%;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.5;
+            color: #373a3c;
+            text-align: inherit;
+            white-space: nowrap;
+            background: #fff;
+            border: 0;
+        }
+
+        span.twitter-typeahead .tt-suggestion:focus,
+        .dropdown-item:hover,
+        span.twitter-typeahead .tt-suggestion:hover {
+            color: #2b2d2f;
+            text-decoration: none;
+            background-color: #f5f5f5;
+        }
+
+        span.twitter-typeahead .active.tt-suggestion,
+        span.twitter-typeahead .tt-suggestion.tt-cursor,
+        span.twitter-typeahead .active.tt-suggestion:focus,
+        span.twitter-typeahead .tt-suggestion.tt-cursor:focus,
+        span.twitter-typeahead .active.tt-suggestion:hover,
+        span.twitter-typeahead .tt-suggestion.tt-cursor:hover {
+            color: #fff;
+            text-decoration: none;
+            background-color: #0275d8;
+            outline: 0;
+        }
+
+        span.twitter-typeahead .disabled.tt-suggestion,
+        span.twitter-typeahead .disabled.tt-suggestion:focus,
+        span.twitter-typeahead .disabled.tt-suggestion:hover {
+            color: #818a91;
+        }
+    </style>
+</head>
+<body>
+
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">Insiders</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Transactions</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Industries</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Education</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            </ul>
+
+
+            <div class="text-end">
+                <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Sign-up
+                </button>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<main class="container pt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </nav>
+
+    <div class="row mt-3">
+        <h2>Input Your Symbols That You Want To Monitor
+        </h2>
+        <form name="watchlistForm" id="watchlistForm" method="POST" action="{{ url('search')  }}">
+            <div id="the-basics">
+                <div class="input-group">
+                    <input class="form-control" name="email" id="email" type="text" class="form-control me-2"
+                           placeholder="Add your Email">
+                </div>
+                <div class="input-group">
+                    <input class="form-control typeahead" name="fruits" id="fruits" type="text" class="form-control me-2"
+                           placeholder="Pick the symbols that you want to monitor f.ex. AAPL, MSFT, TSLA">
+                    <button class="btn btn-warning" type="button" id="listBtn">Add to List</button>
+                </div>
+                <div class="col-sm-3" id="symbolPicks">
+                   <!--
+                    <span class="badge rounded-pill bg-primary">Primary</span>
+                    <span class="badge rounded-pill bg-secondary">Secondary</span>
+                    <span class="badge rounded-pill bg-success">Success</span>
+                    <span class="badge rounded-pill bg-danger">Danger</span>
+                    <span class="badge rounded-pill bg-warning text-dark">Warning</span>
+                    <span class="badge rounded-pill bg-info text-dark">Info</span>
+                    <span class="badge rounded-pill bg-light text-dark">Light</span>
+                    <span class="badge rounded-pill bg-dark">Dark</span>
+                -->
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn btn-warning">Subscribe to symbols</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main><!-- /.container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" integrity="sha512-qOBWNAMfkz+vXXgbh0Wz7qYSLZp6c14R0bZeVX2TdQxWpuKr6yHjBIM69fcF8Ve4GUX6B6AKRQJqiiAmwvmUmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://min.gitcdn.link/repo/Codekutu/Bootstrap4TagsInputWithTypeahead/master/js/bootstrap-tagsinput.js"></script>
+
+<script>
+
+$("#listBtn").click(function () {
+    let txt = $('#fruits').val();
+    $("#symbolPicks").append(`<span class="badge rounded-pill bg-secondary">${txt}</span>`);
+    $("#fruits").val("");
+});
+</script>
+
+<script>
+    var substringMatcher = function(strs) {
+        return function findMatches(q, cb) {
+            var matches, substringRegex;
+
+            // an array that will be populated with substring matches
+            matches = [];
+
+            // regex used to determine if a string contains the substring `q`
+            substrRegex = new RegExp(q, 'i');
+
+            // iterate through the pool of strings and for any string that
+            // contains the substring `q`, add it to the `matches` array
+            $.each(strs, function(i, str) {
+                if (substrRegex.test(str)) {
+                    matches.push(str);
+                }
+            });
+
+            cb(matches);
+        };
+    };
+
+    var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+        'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+        'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+        'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+        'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+        'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+        'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+    ];
+
+    $('#the-basics .typeahead').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'states',
+            source: substringMatcher(states)
+        });
+</script>
+
+</body>
+</html>
