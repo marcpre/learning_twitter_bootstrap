@@ -180,14 +180,28 @@
 <script src="https://min.gitcdn.link/repo/Codekutu/Bootstrap4TagsInputWithTypeahead/master/js/bootstrap-tagsinput.js"></script>
 
 <script>
-    const resArr = [];
+    let resArr = [];
     const limit = 2;
 
 $("#listBtn").click(function () {
     let val = $('#fruits').val();
 
-    console.log(resArr.length <= limit)
+    console.log(resArr.length === limit)
     console.log(resArr.length)
+    console.log(resArr.indexOf(val))
+    console.log(resArr.indexOf(val) === -1)
+
+    // check if limit is overruled
+    if(resArr.length >= limit) {
+        let err = `
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong>     You can only monitor ${limit} symbols.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`;
+
+        $("#error").append(err);
+        return;
+    }
 
     if(resArr.indexOf(val) === -1) {
         resArr.push(val);
@@ -195,10 +209,20 @@ $("#listBtn").click(function () {
         let txt = val + " X";
 
         let span = $('<span class="badge rounded-pill bg-secondary">').text(txt)
-        span.click(() => span.remove())
-
         $("#symbolPicks").append(span);
         $("#fruits").val("");
+
+        span.click(function () {
+            v = $(this).text().replace(" X", "");
+
+            resArr = resArr.filter(function(value, index, arr){
+                return value !== v;
+            });
+
+            span.remove()
+        })
+
+
     } else {
         let err = `
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -207,16 +231,7 @@ $("#listBtn").click(function () {
 </div>`;
 
         $("#error").append(err);
-    }
-
-    if(resArr.length > limit) {
-        let err = `
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Error!</strong>     You can only monitor ${limit} symbols.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>`;
-
-        $("#error").append(err);
+        return;
     }
 });
 </script>
