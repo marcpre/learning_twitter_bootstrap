@@ -140,6 +140,7 @@
         <h2>Input Your Symbols That You Want To Monitor
         </h2>
         <form name="watchlistForm" id="watchlistForm" method="POST" action="{{ url('search')  }}">
+            <div id="error"></div>
             <div id="the-basics">
                 <div class="input-group">
                     <input class="form-control" name="email" id="email" type="text" class="form-control me-2"
@@ -179,11 +180,44 @@
 <script src="https://min.gitcdn.link/repo/Codekutu/Bootstrap4TagsInputWithTypeahead/master/js/bootstrap-tagsinput.js"></script>
 
 <script>
+    const resArr = [];
+    const limit = 2;
 
 $("#listBtn").click(function () {
-    let txt = $('#fruits').val();
-    $("#symbolPicks").append(`<span class="badge rounded-pill bg-secondary">${txt}</span>`);
-    $("#fruits").val("");
+    let val = $('#fruits').val();
+
+    console.log(resArr.length <= limit)
+    console.log(resArr.length)
+
+    if(resArr.indexOf(val) === -1) {
+        resArr.push(val);
+
+        let txt = val + " X";
+
+        let span = $('<span class="badge rounded-pill bg-secondary">').text(txt)
+        span.click(() => span.remove())
+
+        $("#symbolPicks").append(span);
+        $("#fruits").val("");
+    } else {
+        let err = `
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> You have already added ${val} to your list.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`;
+
+        $("#error").append(err);
+    }
+
+    if(resArr.length > limit) {
+        let err = `
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong>     You can only monitor ${limit} symbols.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`;
+
+        $("#error").append(err);
+    }
 });
 </script>
 
