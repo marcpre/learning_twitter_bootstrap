@@ -142,28 +142,32 @@
         <form name="watchlistForm" id="watchlistForm" method="POST" action="{{ url('search')  }}">
             <div id="error"></div>
             <div id="the-basics">
-                <div class="input-group">
+                <div class="input-group mb-3">
                     <input class="form-control" name="email" id="email" type="text" class="form-control me-2"
                            placeholder="Add your Email">
                 </div>
-                <div class="input-group">
-                    <input class="form-control typeahead" name="fruits" id="fruits" type="text" class="form-control me-2"
-                           placeholder="Pick the symbols that you want to monitor f.ex. AAPL, MSFT, TSLA">
+                <div class="input-group mb-3">
+                    <input class="form-control typeahead" name="symbols" id="symbols" type="text"
+                           class="form-control me-2"
+                           placeholder="Pick the symbols that you want to monitor">
                     <button class="btn btn-warning" type="button" id="listBtn">Add to List</button>
+                    <small class="w-100 text-muted">Pick the stock symbols that you want to monitor. Use f.ex. AAPL, MSFT</small>
                 </div>
-                <div class="col-sm-3" id="symbolPicks">
-                   <!--
-                    <span class="badge rounded-pill bg-primary">Primary</span>
-                    <span class="badge rounded-pill bg-secondary">Secondary</span>
-                    <span class="badge rounded-pill bg-success">Success</span>
-                    <span class="badge rounded-pill bg-danger">Danger</span>
-                    <span class="badge rounded-pill bg-warning text-dark">Warning</span>
-                    <span class="badge rounded-pill bg-info text-dark">Info</span>
-                    <span class="badge rounded-pill bg-light text-dark">Light</span>
-                    <span class="badge rounded-pill bg-dark">Dark</span>
-                -->
+                <div class="input-group mb-3">
+                    <div class="col-sm-3" id="symbolPicks" name="symbolPicks">
+                        <!--
+                         <span class="badge rounded-pill bg-primary">Primary</span>
+                         <span class="badge rounded-pill bg-secondary">Secondary</span>
+                         <span class="badge rounded-pill bg-success">Success</span>
+                         <span class="badge rounded-pill bg-danger">Danger</span>
+                         <span class="badge rounded-pill bg-warning text-dark">Warning</span>
+                         <span class="badge rounded-pill bg-info text-dark">Info</span>
+                         <span class="badge rounded-pill bg-light text-dark">Light</span>
+                         <span class="badge rounded-pill bg-dark">Dark</span>
+                     -->
+                    </div>
                 </div>
-                <div class="input-group">
+                <div class="input-group mb-3">
                     <button type="submit" class="btn btn-warning">Subscribe to symbols</button>
                 </div>
             </div>
@@ -176,68 +180,70 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js" integrity="sha512-qOBWNAMfkz+vXXgbh0Wz7qYSLZp6c14R0bZeVX2TdQxWpuKr6yHjBIM69fcF8Ve4GUX6B6AKRQJqiiAmwvmUmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"
+        integrity="sha512-qOBWNAMfkz+vXXgbh0Wz7qYSLZp6c14R0bZeVX2TdQxWpuKr6yHjBIM69fcF8Ve4GUX6B6AKRQJqiiAmwvmUmQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://min.gitcdn.link/repo/Codekutu/Bootstrap4TagsInputWithTypeahead/master/js/bootstrap-tagsinput.js"></script>
 
 <script>
     let resArr = [];
-    const limit = 2;
+    const limit = 10;
 
-$("#listBtn").click(function () {
-    let val = $('#fruits').val();
+    $("#listBtn").click(function () {
+        let val = $('#symbols').val();
 
-    console.log(resArr.length === limit)
-    console.log(resArr.length)
-    console.log(resArr.indexOf(val))
-    console.log(resArr.indexOf(val) === -1)
+        console.log(resArr.length === limit)
+        console.log(resArr.length)
+        console.log(resArr.indexOf(val))
+        console.log(resArr.indexOf(val) === -1)
 
-    // check if limit is overruled
-    if(resArr.length >= limit) {
-        let err = `
+        // check if limit is overruled
+        if (resArr.length >= limit) {
+            let err = `
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   <strong>Error!</strong>     You can only monitor ${limit} symbols.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>`;
 
-        $("#error").append(err);
-        return;
-    }
+            $("#error").append(err);
+            return;
+        }
 
-    if(resArr.indexOf(val) === -1) {
-        resArr.push(val);
+        if (resArr.indexOf(val) === -1) {
+            resArr.push(val);
 
-        let txt = val + " X";
+            let txt = val + " X";
 
-        let span = $('<span class="badge rounded-pill bg-secondary">').text(txt)
-        $("#symbolPicks").append(span);
-        $("#fruits").val("");
+            let span = $('<span class="badge rounded-pill bg-secondary">').text(txt)
+            $("#symbolPicks").append(span);
+            $("#symbols").val("");
 
-        span.click(function () {
-            v = $(this).text().replace(" X", "");
+            span.click(function () {
+                v = $(this).text().replace(" X", "");
 
-            resArr = resArr.filter(function(value, index, arr){
-                return value !== v;
-            });
+                resArr = resArr.filter(function (value, index, arr) {
+                    return value !== v;
+                });
 
-            span.remove()
-        })
+                span.remove()
+            })
 
 
-    } else {
-        let err = `
+        } else {
+            let err = `
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   <strong>Error!</strong> You have already added ${val} to your list.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>`;
 
-        $("#error").append(err);
-        return;
-    }
-});
+            $("#error").append(err);
+            return;
+        }
+    });
 </script>
 
 <script>
-    var substringMatcher = function(strs) {
+    var substringMatcher = function (strs) {
         return function findMatches(q, cb) {
             var matches, substringRegex;
 
@@ -249,7 +255,7 @@ $("#listBtn").click(function () {
 
             // iterate through the pool of strings and for any string that
             // contains the substring `q`, add it to the `matches` array
-            $.each(strs, function(i, str) {
+            $.each(strs, function (i, str) {
                 if (substrRegex.test(str)) {
                     matches.push(str);
                 }
