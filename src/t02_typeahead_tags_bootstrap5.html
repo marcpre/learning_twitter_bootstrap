@@ -137,42 +137,42 @@
     </nav>
 
     <div class="row mt-3">
-        <h2>Input Your Symbols That You Want To Monitor
-        </h2>
-        <form name="watchlistForm" id="watchlistForm" method="POST" action="{{ url('search')  }}">
-            <div id="error"></div>
-            <div id="the-basics">
-                <div class="input-group mb-3">
-                    <input class="form-control" name="email" id="email" type="text" class="form-control me-2"
-                           placeholder="Add your Email">
-                </div>
-                <div class="input-group mb-3">
-                    <input class="form-control typeahead" name="symbols" id="symbols" type="text"
-                           class="form-control me-2"
-                           placeholder="Pick the symbols that you want to monitor">
-                    <button class="btn btn-warning" type="button" id="listBtn">Add to List</button>
-                    <small class="w-100 text-muted">Pick the stock symbols that you want to monitor. Use f.ex. AAPL, MSFT</small>
-                </div>
-                <div class="input-group mb-3">
-                    <div class="col-sm-3" id="symbolPicks" name="symbolPicks">
-                        <!--
-                         <span class="badge rounded-pill bg-primary">Primary</span>
-                         <span class="badge rounded-pill bg-secondary">Secondary</span>
-                         <span class="badge rounded-pill bg-success">Success</span>
-                         <span class="badge rounded-pill bg-danger">Danger</span>
-                         <span class="badge rounded-pill bg-warning text-dark">Warning</span>
-                         <span class="badge rounded-pill bg-info text-dark">Info</span>
-                         <span class="badge rounded-pill bg-light text-dark">Light</span>
-                         <span class="badge rounded-pill bg-dark">Dark</span>
-                     -->
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <button type="submit" class="btn btn-warning">Subscribe to symbols</button>
+        <!-- <div class="position-absolute top-50 start-50 translate-middle"> -->
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+
+                        <h2>Input Your Symbols That You Want To Monitor
+                        </h2>
+                        <form name="watchlistForm" id="watchlistForm" method="POST" action="{{ url('search')  }}">
+                            <div id="error"></div>
+                            <div id="the-basics">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" name="email" id="email" type="text"
+                                           class="form-control me-2"
+                                           placeholder="Add your Email">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input class="form-control typeahead" name="symbols" id="symbols" type="text"
+                                           class="form-control me-2"
+                                           placeholder="Pick the symbols that you want to monitor">
+                                    <button class="btn btn-warning" type="button" id="listBtn">Add to List</button>
+                                    <small class="w-100 text-muted">Pick the stock symbols that you want to monitor. Use
+                                        f.ex. AAPL,
+                                        MSFT</small>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="col-sm-3" id="symbolPicks" name="symbolPicks"></div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <button type="submit" class="btn btn-warning">Subscribe to symbols</button>
+                                </div>
+                            </div>
+                        </form>
+
                 </div>
             </div>
-        </form>
-
+        </div>
     </div>
 </main><!-- /.container -->
 
@@ -191,11 +191,6 @@
 
     $("#listBtn").click(function () {
         let val = $('#symbols').val();
-
-        console.log(resArr.length === limit)
-        console.log(resArr.length)
-        console.log(resArr.indexOf(val))
-        console.log(resArr.indexOf(val) === -1)
 
         // check if limit is overruled
         if (resArr.length >= limit) {
