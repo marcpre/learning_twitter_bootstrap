@@ -27,3 +27,25 @@ Table
 .like {
     margin-right: 10px;
 }
+
+/**
+Telegram Button
+ */
+.btn-label {
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.btn-telegram {
+    background-color: #0088CC;
+    color: white;
+    font-size: 1.4rem;
+}
