@@ -38,31 +38,49 @@
 </head>
 <body>
 
-<header class="p-3 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 30px;">
+    <div class="container-xl">
+        <a class="navbar-brand" href="http://localhost/demo_laravel_nlg-generation/public">
+            <img src="http://localhost/demo_laravel_nlg-generation/public/images/logo/next-return_logo.png" class="bi me-2" width="135" height="32">
+        </a>
+        <!-- Container XL -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-secondary">Product</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Categoriy</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Industries</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Education</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        <div class="collapse navbar-collapse" id="navbarsExample07XL">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost/demo_laravel_nlg-generation/public">Insiders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://localhost/demo_laravel_nlg-generation/public/latest-cluster-buys">Latest Cluster Buys</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Login/Register</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="http://localhost/demo_laravel_nlg-generation/public/login">Login</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="http://localhost/demo_laravel_nlg-generation/public/register">Register</a></li>
+                    </ul>
+                </li>
             </ul>
 
-            <div class="text-end">
-                <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
-                <button type="button" class="btn btn-warning">Sign-up</button>
+            <form class="d-flex" name="searchForm" id="searchForm" method="POST" action="http://localhost/demo_laravel_nlg-generation/public/search">
+                <input type="hidden" name="_token" value="8dNRbFBRFD6jQxBWkzYM4b756KP9FWGptgLcg3DM">                <div id="the-basics">
+                <div class="input-group">
+                    <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control me-2 tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box padding-box rgb(255, 255, 255);" dir="ltr"><input name="searchField" id="searchField" type="text" class="form-control me-2 tt-input" placeholder="Search symbol or ticker" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-res"></div></div></span>
+                    <button type="submit" class="btn btn-warning">Search</button>
+                </div>
             </div>
+            </form>
+
 
         </div>
     </div>
-</header>
+</nav>
 
 <main class="container pt-3">
     <!--
@@ -105,6 +123,7 @@ Content
 
 <!-- Custom JF classes -->
 <script>
+
     /*
     Bizz Bar
     */
@@ -117,18 +136,19 @@ Content
         bb_height += (2 * bb_padding) + bb_border;
 
         $("#bizzbar").effect("bounce", "slow");
-        $('header').css('margin-top', bb_height + 'px');
+        $('nav').css('margin-top', bb_height + 'px');
 
         $("open").click(function() {
-            $("#bizzbar").effect("bounce", "slow");
+            // $("#bizzbar").effect("bounce", "slow");
+            $("#bizzbar").effect("slide", { direction: "up" }, 1000);
             $("open").slideUp();
-            $('header').css('margin-top', bb_height + 'px');
+            $('nav').css('margin-top', bb_height + 'px');
         });
 
         $("close").click(function() {
             $("#bizzbar").slideUp();
             $("open").slideDown();
-            $('header').css('margin-top', '0px');
+            $('nav').css('margin-top', '0px');
         });
     });
 </script>
