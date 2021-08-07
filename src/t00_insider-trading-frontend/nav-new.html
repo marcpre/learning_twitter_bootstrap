@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>New Navigation</title>
+
+    <link rel="canonical" href="">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png"
+          sizes="180x180">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+          type="image/png">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+          type="image/png">
+    <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
+          color="#7952b3">
+    <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#7952b3">
+
+    <!-- Custom styles for this template -->
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/hellobar.css" rel="stylesheet">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 30px;">
+    <div class="container-xl">
+        <a class="navbar-brand" href="http://localhost/demo_laravel_nlg-generation/public">
+            <img src="http://localhost/demo_laravel_nlg-generation/public/images/logo/next-return_logo.png" class="bi me-2" width="135" height="32">
+        </a>
+        <!-- Container XL -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07XL">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Insiders</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">Latest Cluster Buys</a></li>
+                        <li><a class="dropdown-item" href="">Latest Insider Trading (all filings)</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="">Latest Insider Purchases</a></li>
+                        <li><a class="dropdown-item" href="">Latest Insider Purchases $25k+</a></li>
+                        <li><a class="dropdown-item" href="">Latest Officer Purchases $25k+</a></li>
+                        <li><a class="dropdown-item" href="">Latest CEO/CFO Purchases $25k+</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="">Latest Insider Sells</a></li>
+                        <li><a class="dropdown-item" href="">Latest Insider Sales $100k+</a></li>
+                        <li><a class="dropdown-item" href="">Latest Officer Sales $100k+</a></li>
+                        <li><a class="dropdown-item" href="">Latest CEO/CFO Sales $100k+</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Top</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="">Top Officer Purchases Today</a></li>
+                        <li><a class="dropdown-item" href="">Top Officer Purchases Past Week</a></li>
+                        <li><a class="dropdown-item" href="">Top Officer Purchases Past Month</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="">Top Insider Purchases Today</a></li>
+                        <li><a class="dropdown-item" href="">Top Insider Purchases Past Week</a></li>
+                        <li><a class="dropdown-item" href="">Top Insider Purchases Past Month</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="">Top Insider Sales Today</a></li>
+                        <li><a class="dropdown-item" href="">Top Insider Sales Past Week</a></li>
+                        <li><a class="dropdown-item" href="">Top Insider Sales Past Month</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Login/Register</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="http://localhost/demo_laravel_nlg-generation/public/login">Login</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="http://localhost/demo_laravel_nlg-generation/public/register">Register</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="d-flex" name="searchForm" id="searchForm" method="POST" action="http://localhost/demo_laravel_nlg-generation/public/search">
+                <input type="hidden" name="_token" value="8dNRbFBRFD6jQxBWkzYM4b756KP9FWGptgLcg3DM">                <div id="the-basics">
+                <div class="input-group">
+                    <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control me-2 tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box padding-box rgb(255, 255, 255);" dir="ltr"><input name="searchField" id="searchField" type="text" class="form-control me-2 tt-input" placeholder="Search symbol or ticker" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-res"></div></div></span>
+                    <button type="submit" class="btn btn-warning">Search</button>
+                </div>
+            </div>
+            </form>
+
+
+        </div>
+    </div>
+</nav>
+
+<main class="container pt-3">
+    <!--
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Insider</li>
+            <li class="breadcrumb-item active" aria-current="page">Apple</li>
+        </ol>
+    </nav>
+    -->
+
+    <div id='bizzbar'>
+        <p class='bizztext'>Drive more attention to your most important website content with Bizz Bar. <button class='bizzbutton'>Click me</button></p>
+        <close></close>
+    </div>
+    <open></open>
+
+    <div class="text-center py-5 px-0">
+Content
+
+    </div>
+
+</main><!-- /.container -->
+<footer class="text-muted py-5">
+    <div class="container">
+        <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">Build by Test.com</p>
+        <p class="mb-0">You have any questions? <a class="btn btn-warning" href="/">Do not hesitate to contact us!</a></p>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<!-- Custom JF classes -->
+<script>
+
+    /*
+    Bizz Bar
+    */
+
+    $(document).ready(function() {
+        let bb_height = $('#bizzbar').height();
+        const bb_padding = parseInt($('#bizzbar').css('padding'));
+        const bb_border = parseInt($('#bizzbar').css('border-bottom-width'));
+
+        bb_height += (2 * bb_padding) + bb_border;
+
+        $("#bizzbar").effect("bounce", "slow");
+        $('nav').css('margin-top', bb_height + 'px');
+
+        $("open").click(function() {
+            // $("#bizzbar").effect("bounce", "slow");
+            $("#bizzbar").effect("slide", { direction: "up" }, 1000);
+            $("open").slideUp();
+            $('nav').css('margin-top', bb_height + 'px');
+        });
+
+        $("close").click(function() {
+            $("#bizzbar").slideUp();
+            $("open").slideDown();
+            $('nav').css('margin-top', '0px');
+        });
+    });
+</script>
+
+</body>
+</html>
